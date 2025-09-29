@@ -1,13 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36429.23 d17.14
+VisualStudioVersion = 17.14.36429.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetClinic.Management.Domain", "VetClinic.Management.Domain\VetClinic.Management.Domain.csproj", "{3877297D-65A4-41A3-B031-ADFCAFE19A84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetClinic.Management.Domain.Tests", "VetClinic.Management.Domain.Tests\VetClinic.Management.Domain.Tests.csproj", "{C313829C-F7BD-4C98-9E10-5F1B8AB9C1A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetClinic.Management.Api", "VetClinic.Management.Api\VetClinic.Management.Api.csproj", "{DE78CB67-D8F9-43EA-93D8-4858252BF3A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetClinic.Consultation.Domain", "VetClinic.Consultation.Domain\VetClinic.Consultation.Domain.csproj", "{8F06F847-22F8-4301-A67B-6846C841F627}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetClinic.Consultation.Domain.Tests", "VetClinic.Consultation.Domain.Tests\VetClinic.Consultation.Domain.Tests.csproj", "{72AFA5E8-920B-42B5-A51E-E08DFA2CF729}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetClinic.Consultation.Api", "VetClinic.Consultation.Api\VetClinic.Consultation.Api.csproj", "{09D78582-DB71-4A43-8FB7-6E7735A2D7BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetClinic.SharedKernel", "VetClinic.SharedKernel\VetClinic.SharedKernel.csproj", "{839630E8-7D01-4CFB-B4D8-424185472A0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +35,22 @@ Global
 		{DE78CB67-D8F9-43EA-93D8-4858252BF3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE78CB67-D8F9-43EA-93D8-4858252BF3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE78CB67-D8F9-43EA-93D8-4858252BF3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F06F847-22F8-4301-A67B-6846C841F627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F06F847-22F8-4301-A67B-6846C841F627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F06F847-22F8-4301-A67B-6846C841F627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F06F847-22F8-4301-A67B-6846C841F627}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72AFA5E8-920B-42B5-A51E-E08DFA2CF729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72AFA5E8-920B-42B5-A51E-E08DFA2CF729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72AFA5E8-920B-42B5-A51E-E08DFA2CF729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72AFA5E8-920B-42B5-A51E-E08DFA2CF729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09D78582-DB71-4A43-8FB7-6E7735A2D7BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09D78582-DB71-4A43-8FB7-6E7735A2D7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09D78582-DB71-4A43-8FB7-6E7735A2D7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09D78582-DB71-4A43-8FB7-6E7735A2D7BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{839630E8-7D01-4CFB-B4D8-424185472A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{839630E8-7D01-4CFB-B4D8-424185472A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{839630E8-7D01-4CFB-B4D8-424185472A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{839630E8-7D01-4CFB-B4D8-424185472A0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

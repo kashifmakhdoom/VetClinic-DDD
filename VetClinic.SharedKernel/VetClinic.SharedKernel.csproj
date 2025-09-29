@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\VetClinic.SharedKernel\VetClinic.SharedKernel.csproj" />
-  </ItemGroup>
-
 </Project>

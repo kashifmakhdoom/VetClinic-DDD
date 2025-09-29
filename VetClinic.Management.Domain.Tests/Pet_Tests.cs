@@ -1,5 +1,6 @@
 ﻿using VetClinic.Management.Domain.Entities;
 using VetClinic.Management.Domain.ValueObjects;
+using VetClinic.SharedKernel.ValueObjects;
 
 namespace VetClinic.Management.Domain.Tests
 {

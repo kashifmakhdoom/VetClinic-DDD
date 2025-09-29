@@ -1,4 +1,4 @@
-﻿namespace VetClinic.Management.Domain
+﻿namespace VetClinic.SharedKernel
 {
     public abstract class Entity : IEquatable<Entity>
     {

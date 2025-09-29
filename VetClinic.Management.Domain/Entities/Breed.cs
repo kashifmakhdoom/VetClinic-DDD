@@ -1,4 +1,5 @@
-﻿using VetClinic.Management.Domain.ValueObjects;
+﻿using VetClinic.SharedKernel;
+using VetClinic.Management.Domain.ValueObjects;
 
 namespace VetClinic.Management.Domain.Entities
 {
