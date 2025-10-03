@@ -1,8 +1,7 @@
-﻿
-using VetClinic.Consultation.Domain.ValueObjects;
+﻿using VetClinic.Consultation.Domain.ValueObjects;
 using VetClinic.SharedKernel;
 
-namespace VetClinic.Consultation.Domain
+namespace VetClinic.Consultation.Domain.Entities
 {
     public class DrugAdministration : Entity
     {
@@ -14,6 +13,11 @@ namespace VetClinic.Consultation.Domain
             Id = Guid.NewGuid();
             DrugId = drugId;
             Dose = dose;
+        }
+
+        public DrugAdministration()
+        {
+
         }
     }
 }

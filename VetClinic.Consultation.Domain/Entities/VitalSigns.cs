@@ -1,6 +1,8 @@
-﻿namespace VetClinic.Consultation.Domain.ValueObjects
+﻿using VetClinic.SharedKernel;
+
+namespace VetClinic.Consultation.Domain.Entities
 {
-    public record VitalSigns
+    public class VitalSigns : Entity
     {
         public DateTime ReadingDateTime { get; init; }
         public decimal Temperature { get; init; }
@@ -12,11 +14,16 @@
                           int heartRate,
                           int respiratoryRate)
         {
+            Id = Guid.NewGuid();
             ReadingDateTime = readingDateTime;
             Temperature = temperature;
             HeartRate = heartRate;
             RespiratoryRate = respiratoryRate;
         }
 
+        public VitalSigns()
+        {
+
+        }
     }
 }

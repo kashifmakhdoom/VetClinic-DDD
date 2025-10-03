@@ -1,4 +1,9 @@
 
+using Microsoft.EntityFrameworkCore;
+using VetClinic.Management.Api.Application;
+using VetClinic.Management.Api.Infrastructure;
+using VetClinic.Management.Domain;
+
 namespace VetClinic.Management.Api
 {
     public class Program
@@ -14,7 +19,19 @@ namespace VetClinic.Management.Api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddScoped<IManagementRepository, ManagementRepository>();
+            builder.Services.AddScoped<IBreedService, BreedService>();
+            
+            builder.Services.AddScoped<ICommandHandler<SetWeightCommand>, SetWeightCommandHandler>();
+
+            builder.Services.AddDbContext<ManagementDbContext>(options =>
+            {
+                options.UseSqlite(builder.Configuration.GetConnectionString("LocalDbConnection"));
+            });
+
             var app = builder.Build();
+
+            app.EnsureDbIsCreated();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

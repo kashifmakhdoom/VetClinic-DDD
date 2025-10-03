@@ -1,4 +1,8 @@
 
+using Microsoft.EntityFrameworkCore;
+using VetClinic.Consultation.Api.Application.Services;
+using VetClinic.Consultation.Api.Infrastructure;
+
 namespace VetClinic.Consultation.Api
 {
     public class Program
@@ -13,6 +17,12 @@ namespace VetClinic.Consultation.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<ConsultationDbContext>(options =>
+            {
+                options.UseSqlite(builder.Configuration.GetConnectionString("LocalDbConnection"));
+            });
+            builder.Services.AddScoped<ConsultationService>();
 
             var app = builder.Build();
 
