@@ -2,10 +2,10 @@
 {
     public record WeightRange
     {
-        public decimal From { get; set; }
-        public decimal To { get; set; }
+        public double From { get; set; }
+        public double To { get; set; }
 
-        public WeightRange(decimal from, decimal to)
+        public WeightRange(double from, double to)
         {
             From = from;
             To = to;

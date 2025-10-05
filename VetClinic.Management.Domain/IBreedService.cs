@@ -12,8 +12,8 @@ namespace VetClinic.Management.Domain
     {
         public readonly List<Breed> breeds =
             [
-               new Breed(Guid.NewGuid(), "Beagle", new WeightRange(12m, 22m), new WeightRange(10m, 20m)),
-               new Breed(Guid.NewGuid(), "Husky", new WeightRange(15m, 25m), new WeightRange(12m, 22m))
+               new Breed(Guid.NewGuid(), "Beagle", new WeightRange(12, 22), new WeightRange(10, 20)),
+               new Breed(Guid.NewGuid(), "Husky", new WeightRange(15, 25), new WeightRange(12, 22))
             ];
         public Breed? GetBreed(Guid id)
         {

@@ -46,7 +46,7 @@ namespace VetClinic.Consultation.Domain.Tests
             c.SetDiagnosis("Diagnosis");
             c.SetWeight(18.5);
             c.End();
-            Assert.Throws<InvalidOperationException>(() => c.SetWeight(19.2m));
+            Assert.Throws<InvalidOperationException>(() => c.SetWeight(19.2));
         }
 
         [Fact]

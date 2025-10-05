@@ -54,8 +54,8 @@ namespace VetClinic.Management.Domain.Tests
         public void Weight_should_be_equal()
         {
             // Arrange
-            var weight1 = new Weight(12.3m);
-            var weight2 = new Weight(12.3m);
+            var weight1 = new Weight(12.3);
+            var weight2 = new Weight(12.3);
 
             // Assert
             Assert.True(weight1 == weight2);
@@ -65,8 +65,8 @@ namespace VetClinic.Management.Domain.Tests
         public void Weight_should_not_be_equal()
         {
             // Arrange
-            var weight1 = new Weight(12.3m);
-            var weight2 = new Weight(15.3m);
+            var weight1 = new Weight(12.3);
+            var weight2 = new Weight(15.3);
 
             // Assert
             Assert.True(weight1 != weight2);
@@ -76,8 +76,8 @@ namespace VetClinic.Management.Domain.Tests
         public void WeightRange_should_be_equal()
         {
             // Arrange
-            var weightRange1 = new WeightRange(8.0m, 15.0m);
-            var weightRange2 = new WeightRange(8.0m, 15.0m);
+            var weightRange1 = new WeightRange(8.3, 15.0);
+            var weightRange2 = new WeightRange(8.3, 15.0);
 
             // Assert
             Assert.True(weightRange1 == weightRange2);
@@ -87,8 +87,8 @@ namespace VetClinic.Management.Domain.Tests
         public void WeightRange_should_not_be_equal()
         {
             // Arrange
-            var weightRange1 = new WeightRange(7.0m, 17.0m);
-            var weightRange2 = new WeightRange(8.0m, 15.0m);
+            var weightRange1 = new WeightRange(7.0, 17.0);
+            var weightRange2 = new WeightRange(8.0, 15.0);
 
             // Assert
             Assert.True(weightRange1 != weightRange2);

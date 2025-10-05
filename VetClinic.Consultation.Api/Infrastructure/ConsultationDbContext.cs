@@ -3,52 +3,65 @@ using VetClinic.Consultation.Domain.ValueObjects;
 
 using ConsultationEntity = VetClinic.Consultation.Domain.Entities.Consultation;
 
-namespace VetClinic.Consultation.Api.Infrastructure
+namespace VetClinic.Consultation.Api.Infrastructure;
+
+public class ConsultationDbContext(DbContextOptions options) : DbContext(options)
 {
-    public class ConsultationDbContext(DbContextOptions options) : DbContext(options)
+    // *** Using EventSourcing pattern ***
+    public DbSet<ConsultationEventData> Consultations { get; set; }
+
+    #region *** Using Traditional pattern ***
+    //public DbSet<ConsultationEntity> Consultations { get; set; }
+
+    /*
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        public DbSet<ConsultationEntity> Consultations { get; set; }
+        base.OnModelCreating(modelBuilder);
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        modelBuilder.Entity<ConsultationEntity>(consultation =>
         {
-            base.OnModelCreating(modelBuilder);
+            consultation.HasKey(x => x.Id);
 
-            modelBuilder.Entity<ConsultationEntity>(consultation =>
+            consultation.Property(p => p.PatientId)
+                        .HasConversion(v => v.Value, v => new PatientId(v));
+
+            consultation.OwnsOne(p => p.Diagnosis);
+            consultation.OwnsOne(p => p.Treatment);
+            consultation.OwnsOne(p => p.CurrentWeight);
+            consultation.OwnsOne(p => p.When);
+
+            consultation.OwnsMany(c => c.AdministeredDrugs, a =>
             {
-                consultation.HasKey(x => x.Id);
-
-                consultation.Property(p => p.PatientId)
-                            .HasConversion(v => v.Value, v => new PatientId(v));
-
-                consultation.OwnsOne(p => p.Diagnosis);
-                consultation.OwnsOne(p => p.Treatment);
-                consultation.OwnsOne(p => p.CurrentWeight);
-                consultation.OwnsOne(p => p.When);
-
-                consultation.OwnsMany(c => c.AdministeredDrugs, a =>
-                {
-                    a.WithOwner().HasForeignKey("ConsultationId");
-                    a.OwnsOne(d => d.DrugId);
-                    a.OwnsOne(d => d.Dose);
-                });
-
-                consultation.OwnsMany(c => c.VitalSignReadings, v =>
-                {
-                    v.WithOwner().HasForeignKey("ConsultationId");
-                });
+                a.WithOwner().HasForeignKey("ConsultationId");
+                a.OwnsOne(d => d.DrugId);
+                a.OwnsOne(d => d.Dose);
             });
-        }
-    }
 
-    public static class ClinicDbContextExtensions
+            consultation.OwnsMany(c => c.VitalSignReadings, v =>
+            {
+                v.WithOwner().HasForeignKey("ConsultationId");
+            });
+        });
+    }
+    */
+    #endregion
+
+
+}
+public static class ClinicDbContextExtensions
+{
+    public static void EnsureDbIsCreated(this IApplicationBuilder app)
     {
-        public static void EnsureDbIsCreated(this IApplicationBuilder app)
-        {
-            using var scope = app.ApplicationServices.CreateScope();
-            var context = scope.ServiceProvider.GetService<ConsultationDbContext>();
-            context.Database.EnsureCreated();
-            context.Database.CloseConnection();
-        }
+        using var scope = app.ApplicationServices.CreateScope();
+        var context = scope.ServiceProvider.GetService<ConsultationDbContext>();
+        context.Database.EnsureCreated();
+        context.Database.CloseConnection();
     }
 }
+
+public record ConsultationEventData(Guid Id,
+                                    string AggregateId,
+                                    string EventName,
+                                    string Data,
+                                    string AssemblyQualifiedName);
 

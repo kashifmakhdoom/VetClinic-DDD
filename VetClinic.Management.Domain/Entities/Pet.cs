@@ -1,6 +1,7 @@
 ﻿using VetClinic.SharedKernel;
 using VetClinic.Management.Domain.ValueObjects;
 using VetClinic.SharedKernel.ValueObjects;
+using VetClinic.Management.Domain.Events;
 
 namespace VetClinic.Management.Domain.Entities
 {
@@ -33,6 +34,10 @@ namespace VetClinic.Management.Domain.Entities
         {
             Weight = weight;
             SetWeightClass(breedService);
+
+            // Raise domain event
+            DomainEvents.PetWeightUpdated.Publish(
+                new PetWeightUpdated(Id, weight.Value));
         }
 
         public void SetWeightClass(IBreedService breedService)

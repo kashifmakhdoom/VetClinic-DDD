@@ -18,5 +18,12 @@ namespace VetClinic.Consultation.Domain.ValueObjects
         { 
             return new PatientId(value);
         }
+
+        
+        public static implicit operator Guid(PatientId value)
+        {
+            return value.Value;
+        }
+        
     }
 }
